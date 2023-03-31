@@ -1,0 +1,275 @@
+@use "./colors" as *;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	font-family: "Montserrat", sans-serif;
+	height: 100vh;
+	overflow-y: hidden;
+}
+
+.title {
+	margin-top: 50px;
+	color: $black;
+	font-size: 40px;
+	border-right: 4px solid $green;
+	animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: "Courier Prime", monospace;
+}
+
+.keyboard-text {
+	height: 300px;
+	width: 80%;
+	resize: none;
+	border: none;
+	box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+	font-size: 30px;
+	outline: none;
+}
+
+.keyboard {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	width: 100%;
+	border-radius: 10px;
+	background-color: $gray;
+	transform: translateY(0);
+	transition: all 0.3s;
+
+	.close-btn {
+		position: absolute;
+		right: 50px;
+		bottom: 330px;
+		width: 50px;
+		transform: rotate(180deg);
+		cursor: pointer;
+	}
+	.row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+
+		.key {
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		.key:hover {
+			background-color: $hover-gray;
+		}
+		.clear-btn {
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+		.clear-btn:hover {
+			background-color: $hover-gray;
+		}
+
+		.caps {
+			position: relative;
+			padding: 14px 25px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+			.caps-dot {
+				position: absolute;
+				top: 8px;
+				right: 8px;
+				width: 15px;
+				height: 15px;
+				border-radius: 100%;
+				border: 2px solid $green;
+			}
+			.active-caps-dot {
+				background-color: $green;
+				box-shadow: 0px 0px 28px 7px rgba(91, 228, 0, 1);
+			}
+			img {
+				width: 30px;
+			}
+
+			.caps-line {
+				position: absolute;
+				top: 65%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: $black;
+				height: 2px;
+				width: 20px;
+			}
+		}
+
+		.caps:hover {
+			background-color: $hover-gray;
+		}
+
+		.enter {
+			position: relative;
+			background-color: $dark-gray;
+			height: 65px;
+			width: 140px;
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			cursor: pointer;
+			transition: all 0.3s;
+
+			img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 40px;
+			}
+		}
+
+		.enter:hover {
+			background-color: $hover-gray;
+		}
+		.tab {
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+		.tab:hover {
+			background-color: $hover-gray;
+		}
+		.backspace {
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		.backspace:hover {
+			background-color: $dark-gray;
+		}
+		.space {
+			position: relative;
+			width: 800px;
+			height: 70px;
+			background-color: $dark-gray;
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+
+		.space:hover {
+			background-color: $hover-gray;
+		}
+
+		.space::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50%;
+			height: 1px;
+			background-color: $black;
+		}
+		.shift {
+			padding: 20px 30px;
+			margin: 4px;
+			border: transparent;
+			border-radius: 12px;
+			background-color: $white;
+			box-shadow: 0px 0px 14px -2px rgba(171, 184, 195, 1);
+			font-size: 20px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+		.active {
+			background-color: $hover-gray;
+		}
+		.shift:hover {
+			background-color: $hover-gray;
+		}
+	}
+}
+
+.show {
+	transform: translateY(80%);
+}
+
+// ANIMATIONS
+@keyframes cursor {
+	0%,
+	100% {
+		border-color: transparent;
+	}
+	50% {
+		border-color: $green;
+	}
+}
+
+@keyframes typing {
+	0% {
+		width: 0ch;
+	} /*Text is hidden*/
+	30% {
+		width: 16ch;
+	} /*The enitre header will be typed out 1 character at a time*/
+	80% {
+		width: 16ch;
+	} /*Text stays visible*/
+	90% {
+		width: 0ch;
+	} /*Text is deleted*/
+	100% {
+		width: 0ch;
+	} /*Text stays hidden*/
+}

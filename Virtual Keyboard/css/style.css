@@ -1,0 +1,258 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.title {
+  margin-top: 50px;
+  color: #000;
+  font-size: 40px;
+  border-right: 4px solid #5be400;
+  animation: cursor 1s infinite step-end, typing 15s infinite steps(16);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Courier Prime", monospace;
+}
+
+.keyboard-text {
+  height: 300px;
+  width: 80%;
+  resize: none;
+  border: none;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 30px;
+  outline: none;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(171, 184, 195, 0.1843137255);
+  transform: translateY(0);
+  transition: all 0.3s;
+}
+.keyboard .close-btn {
+  position: absolute;
+  right: 50px;
+  bottom: 330px;
+  width: 50px;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.keyboard .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.keyboard .row .key {
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .key:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .clear-btn {
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .clear-btn:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .caps {
+  position: relative;
+  padding: 14px 25px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .caps .caps-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 2px solid #5be400;
+}
+.keyboard .row .caps .active-caps-dot {
+  background-color: #5be400;
+  box-shadow: 0px 0px 28px 7px rgb(91, 228, 0);
+}
+.keyboard .row .caps img {
+  width: 30px;
+}
+.keyboard .row .caps .caps-line {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  height: 2px;
+  width: 20px;
+}
+.keyboard .row .caps:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .enter {
+  position: relative;
+  background-color: #abb8c3;
+  height: 65px;
+  width: 140px;
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .enter img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+}
+.keyboard .row .enter:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .tab {
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .tab:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .backspace {
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .backspace:hover {
+  background-color: #abb8c3;
+}
+.keyboard .row .space {
+  position: relative;
+  width: 800px;
+  height: 70px;
+  background-color: #abb8c3;
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .space:hover {
+  background-color: #7c8790;
+}
+.keyboard .row .space::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 1px;
+  background-color: #000;
+}
+.keyboard .row .shift {
+  padding: 20px 30px;
+  margin: 4px;
+  border: transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 14px -2px rgb(171, 184, 195);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.keyboard .row .active {
+  background-color: #7c8790;
+}
+.keyboard .row .shift:hover {
+  background-color: #7c8790;
+}
+
+.show {
+  transform: translateY(80%);
+}
+
+@keyframes cursor {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #5be400;
+  }
+}
+@keyframes typing {
+  0% {
+    width: 0ch;
+  } /*Text is hidden*/
+  30% {
+    width: 16ch;
+  } /*The enitre header will be typed out 1 character at a time*/
+  80% {
+    width: 16ch;
+  } /*Text stays visible*/
+  90% {
+    width: 0ch;
+  } /*Text is deleted*/
+  100% {
+    width: 0ch;
+  } /*Text stays hidden*/
+}/*# sourceMappingURL=style.css.map */
